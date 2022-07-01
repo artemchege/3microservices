@@ -20,6 +20,14 @@ services:
       - MAIL_PASSWORD=password
       - MAIL_SERVER=server
 
+  profile_microservice:
+    build: ./ProfileMicroservice
+    command: uvicorn main:app --host=0.0.0.0 --port=5003
+    expose:
+      - 5003
+    depends_on:
+      - db
+
   nginx:
     build: ./nginx
     ports:
@@ -27,6 +35,7 @@ services:
     depends_on:
       - user_microservice
       - notification_microservice
+      - profile_microservice
 
   db:
     image: postgres:13.0-alpine

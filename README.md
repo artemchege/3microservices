@@ -10,3 +10,4 @@ docs:
 
     http://127.0.0.1:1337/notification/docs
     http://127.0.0.1:1337/user/docs
+    http://127.0.0.1:1337/profile/docs

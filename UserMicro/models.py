@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, DateTime, String
 from sqlalchemy.sql import func
-from sqlalchemy.orm import relationship, Session
+from sqlalchemy.orm import Session
 
 from fastapi import status, HTTPException
 
@@ -11,7 +11,7 @@ from hashing import Hash
 class User(Base):
     __tablename__ = "user"
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     created = Column(DateTime(timezone=True), onupdate=func.now())
     name = Column(String)
     email = Column(String, unique=True)
