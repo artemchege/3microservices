@@ -21,7 +21,7 @@ services:
       - MAIL_SERVER=server
 
   profile_microservice:
-    build: ./ProfileMicroservice
+    build: ./ProfileMicro
     command: uvicorn main:app --host=0.0.0.0 --port=5003
     expose:
       - 5003
